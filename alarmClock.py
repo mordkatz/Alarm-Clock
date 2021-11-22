@@ -11,7 +11,7 @@ root = Tk()
 root.title('Alarm Clock')
 
 # Set geometry
-root.geometry("400x300")
+root.geometry("400x400")
 
 # display time on the label
 def Atime():
@@ -49,7 +49,8 @@ def alarm():
 
 		# Check whether set alarm is equal to current time or not
 		if current_time == set_alarm_time:
-			print("Time to Wake up")
+			wakeup.config(text="Time to Wake up")
+			break
 			# Playing sound
 			#winsound.PlaySound("sound.wav",winsound.SND_ASYNC)
 Label(root,text="Set Time").pack()
@@ -96,10 +97,12 @@ secs = OptionMenu(frame, second, *seconds)
 secs.pack(side=LEFT)
 
 Button(root,text="Set Alarm",command=Threading).pack(pady=20)
+wakeup = Label(root, text=" ").pack()
+
 def Exit():
 	exit(0)
-Button(root, text="EXIT",command=Exit).pack(pady=10)
 
+exitButton = Button(root, text="EXIT",command=Exit).pack(pady=10)
 
 
 
